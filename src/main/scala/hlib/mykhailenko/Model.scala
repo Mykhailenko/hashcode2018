@@ -15,7 +15,7 @@ case class Coord(var r: Int = 0, var c: Int = 0) {
   def dist(another: Coord) = Math.abs(r - another.r) + Math.abs(c - another.c)
 }
 
-class Challenge (val w: Int, val h: Int, val maxDistance: Int) {
+class Challenge (val r: Int, val c: Int, val maxDistance: Int) {
   var buildings: List[Building] = List()
 }
 

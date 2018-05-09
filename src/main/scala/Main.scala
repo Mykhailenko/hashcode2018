@@ -1,5 +1,6 @@
 
 import hlib.mykhailenko.IO.{readChallenge, readSolution}
+import hlib.mykhailenko.{Challenge, Solution}
 import org.rogach.scallop._
 
 class Conf(arguments: Seq[String]) extends ScallopConf(arguments) {
@@ -19,6 +20,11 @@ object Main {
     val solution = readSolution(cmd.solution())
 
 
-    println("Hello, world!")
+    println("Your score is " + score(challenge, solution))
   }
+
+  def score(challenge: Challenge, solution: Solution): Int ={
+    0
+  }
+
 }

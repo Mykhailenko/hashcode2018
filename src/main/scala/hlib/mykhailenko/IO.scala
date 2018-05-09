@@ -11,8 +11,8 @@ object IO {
 
     val lines = Source.fromFile(path).getLines
 
-    val Array(w, h, max, nBuildings) = lines.next().split(separator).map(_.toInt)
-    val challenge = new Challenge(w, h, max);
+    val Array(r, c, max, nBuildings) = lines.next().split(separator).map(_.toInt)
+    val challenge = new Challenge(r, c, max);
 
     val buildings = (0 until nBuildings).map(id => {
       val Array(rTypeRow, rows, columns, valueAssos)  = lines.next().split(separator);

@@ -15,5 +15,9 @@
 
 ## to run fat jar
 
-`java -jar /path/to/fatJar.jar `
+`java -jar /path/to/fatJar.jar --challenge challenge.txt --solution solution.txt`
+
+## all-in-one
+
+`./run.sh --challenge challenge.txt --solution solution.txt`
 
