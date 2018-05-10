@@ -40,10 +40,10 @@ object IO {
     val nBuildings = lines.next().toInt
 
 
-    (0 until nBuildings).map(_ => {
+    solution.buildings = (0 until nBuildings).map(_ => {
       val Array(id, r, c) = lines.next().split(" ").map(_.toInt)
       new BuildCoord(id, r, c)
-    })
+    }).toList
 
     solution
   }

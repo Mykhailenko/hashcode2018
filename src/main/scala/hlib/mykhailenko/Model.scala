@@ -9,6 +9,19 @@ import hlib.mykhailenko.BuildingType.BuildingType
 
 class Building (val id: Int, val buildingType: BuildingType, val assosiactedValue: Int, val plan: Array[Array[Boolean]]) {
   var coord = Coord()
+
+  def getRightBottomCorner = Coord(coord.r + plan.length - 1, coord.c + plan(0).length - 1)
+
+  lazy val occupiedCoords = {
+    val coords = for { r <- plan.indices
+                       c <- plan(0).indices}
+      yield if (plan(r)(c)){
+        Some(Coord(r + coord.r - 1, c + coord.c - 1))
+      } else {
+        None
+      }
+    coords.filter(_.isDefined).map(_.get)
+  }
 }
 
 case class Coord(var r: Int = 0, var c: Int = 0) {

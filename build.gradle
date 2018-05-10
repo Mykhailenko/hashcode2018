@@ -5,7 +5,7 @@ apply plugin: 'java'
 apply plugin: 'scala'
 apply plugin: 'application'
 
-mainClassName = "Main"
+mainClassName = "Score"
 
 sourceCompatibility = 1.8
 
@@ -22,18 +22,27 @@ dependencies {
 def myManifest = {
     attributes 'Implementation-Title': 'Score counter for Hashcode2018',
             'Implementation-Version': version,
-            'Main-Class': 'Main'
+            'Main-Class': 'hlib.mykhailenko.main.Score'
 }
 
 jar {
-    manifest {
-        myManifest
-    }
+    manifest (myManifest)
 }
 
-task fatJar(type: Jar) {
+task scoreJar(type: Jar) {
+    dependsOn build
+    manifest (myManifest)
+    baseName = project.name + '-score'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task allScoreJar(type: Jar){
+    dependsOn build
     manifest {
-        myManifest
+        attributes 'Implementation-Title': 'Score all solutions in the folder',
+                'Implementation-Version': version,
+                'Main-Class': 'hlib.mykhailenko.main.AllScore'
     }
     baseName = project.name + '-all'
     from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }

@@ -1,23 +1,22 @@
 
 # Tool to calculate score for the task in final google hashcode 2018.
 
-## to run via gradle
+## to score via gradle without argument (does not work)
 
 `gradle build run`
 
-## to build jar
+## to build score fat jar
 
-`gradle jar`
+`gradle scoreJar`
 
-## to build fat jar
+## to score on solution
 
-`gradle fatJar`
+`./score.sh --challenge challenge.txt --solution solution.txt`
 
-## to run fat jar
+## to build all score fat jar
 
-`java -jar /path/to/fatJar.jar --challenge challenge.txt --solution solution.txt`
+`gradle allScoreJar
 
-## all-in-one
+## to score all solutions in the folder
 
-`./run.sh --challenge challenge.txt --solution solution.txt`
-
+`./all-score.sh --folder ./data/`
