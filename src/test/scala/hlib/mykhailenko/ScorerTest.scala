@@ -53,4 +53,10 @@ class ScorerTest {
     Assert.assertFalse(isOccupied(building, Coord(6, 11)))
 
   }
+
+  @Test def testStreamOfAttempts(): Unit = {
+
+    println(SolverRandom.streamOfAttemp(Coord(10, 10), Direction.Up, 20))
+
+  }
 }
